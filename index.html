@@ -52,6 +52,54 @@
             padding: 0 1.5rem;
         }
 
+        .gold {
+            color: #d4af37;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #e5e5e5;
+            z-index: 100;
+            padding: 1rem 0;
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .nav-logo {
+            font-weight: 500;
+            font-size: 1.25rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: #000;
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: color 0.2s;
+        }
+
+        .nav-link:hover {
+            color: #d4af37;
+        }
+
         /* Hero Section */
         .hero {
             min-height: 100vh;
@@ -59,6 +107,7 @@
             align-items: center;
             justify-content: center;
             text-align: center;
+            padding-top: 80px;
         }
 
         .hero h1 {
@@ -68,16 +117,17 @@
             margin-bottom: 1rem;
         }
 
-        .hero .gold {
-            color: #d4af37;
-            font-weight: 400;
-        }
-
-        .hero p {
+        .hero .tagline {
             font-size: 1.25rem;
             color: #666;
             font-weight: 300;
             letter-spacing: 0.02em;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero .subtitle {
+            font-size: 0.95rem;
+            color: #999;
             margin-bottom: 2rem;
         }
 
@@ -94,11 +144,24 @@
             border: none;
             cursor: pointer;
             font-size: 1rem;
+            margin: 0.5rem;
         }
 
         .btn-gold:hover {
             background: #b8941f;
             box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid #000;
+            color: #000;
+        }
+
+        .btn-outline:hover {
+            background: #000;
+            color: #fff;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         }
 
         .btn-gold svg {
@@ -109,8 +172,33 @@
             transform: translateX(4px);
         }
 
-        /* Devices Section */
-        .devices {
+        /* Stats Bar */
+        .stats-bar {
+            padding: 4rem 0;
+            background: rgba(249, 249, 249, 0.3);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            color: #d4af37;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-item p {
+            color: #666;
+            font-size: 0.875rem;
+        }
+
+        /* Why Waffles Section */
+        .why-waffles {
             padding: 8rem 0;
         }
 
@@ -119,6 +207,52 @@
             font-weight: 300;
             text-align: center;
             margin-bottom: 5rem;
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-bottom: 4rem;
+        }
+
+        .content-block h3 {
+            font-size: 2rem;
+            font-weight: 300;
+            margin-bottom: 1rem;
+        }
+
+        .content-block p {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .feature-list li {
+            padding: 0.75rem 0;
+            padding-left: 2rem;
+            position: relative;
+            color: #666;
+        }
+
+        .feature-list li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #d4af37;
+            font-weight: bold;
+        }
+
+        /* Devices Section */
+        .devices {
+            padding: 8rem 0;
+            background: rgba(249, 249, 249, 0.3);
         }
 
         .device-grid {
@@ -185,6 +319,40 @@
             color: #fff;
         }
 
+        /* Architecture Section */
+        .architecture {
+            padding: 8rem 0;
+        }
+
+        .architecture-diagram {
+            background: rgba(249, 249, 249, 0.5);
+            border: 1px solid #e5e5e5;
+            padding: 3rem;
+            font-family: 'Courier New', monospace;
+            font-size: 0.875rem;
+            overflow-x: auto;
+            margin: 3rem 0;
+        }
+
+        .arch-layer {
+            margin: 1.5rem 0;
+            padding: 1rem;
+            border: 1px solid #d4af37;
+            position: relative;
+        }
+
+        .arch-label {
+            color: #d4af37;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .arch-arrow {
+            text-align: center;
+            color: #d4af37;
+            margin: 0.5rem 0;
+        }
+
         /* Features Timeline */
         .features {
             padding: 8rem 0;
@@ -246,6 +414,93 @@
 
         .timeline-content p {
             color: #666;
+        }
+
+        /* Benchmarks Section */
+        .benchmarks {
+            padding: 8rem 0;
+        }
+
+        .benchmark-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .benchmark-card {
+            border: 1px solid #e5e5e5;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .benchmark-value {
+            font-size: 3rem;
+            font-weight: 300;
+            color: #d4af37;
+            margin-bottom: 0.5rem;
+        }
+
+        .benchmark-label {
+            color: #666;
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+        }
+
+        .benchmark-bar {
+            height: 8px;
+            background: #f0f0f0;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .benchmark-fill {
+            height: 100%;
+            background: #d4af37;
+            transition: width 1s ease-out;
+        }
+
+        /* Security Section */
+        .security {
+            padding: 8rem 0;
+            background: rgba(249, 249, 249, 0.3);
+        }
+
+        .security-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .security-card {
+            background: #fff;
+            border: 1px solid #e5e5e5;
+            padding: 2rem;
+        }
+
+        .security-card h3 {
+            font-size: 1.25rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            color: #d4af37;
+        }
+
+        .security-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .security-card li {
+            padding: 0.5rem 0;
+            color: #666;
+            font-size: 0.875rem;
+        }
+
+        .security-card li::before {
+            content: "✓";
+            color: #d4af37;
+            margin-right: 0.5rem;
+            font-weight: bold;
         }
 
         /* Documentation Panel */
@@ -316,6 +571,7 @@
             font-family: 'Courier New', monospace;
             font-size: 0.875rem;
             overflow-x: auto;
+            margin-bottom: 2rem;
         }
 
         .code-comment {
@@ -333,6 +589,80 @@
             padding-top: 1rem;
             margin-top: 1rem;
             border-top: 1px solid rgba(229, 229, 229, 0.3);
+        }
+
+        /* Installation Section */
+        .installation {
+            padding: 8rem 0;
+            background: rgba(249, 249, 249, 0.3);
+        }
+
+        .platform-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .platform-tab {
+            padding: 0.75rem 1.5rem;
+            background: #fff;
+            border: 1px solid #e5e5e5;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .platform-tab:hover {
+            border-color: #d4af37;
+        }
+
+        .platform-tab.active {
+            background: #000;
+            color: #fff;
+            border-color: #000;
+        }
+
+        .install-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Comparison Table */
+        .comparison {
+            padding: 8rem 0;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 3rem;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 1.5rem;
+            text-align: left;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .comparison-table th {
+            font-weight: 500;
+            background: rgba(249, 249, 249, 0.5);
+        }
+
+        .comparison-table .highlight {
+            color: #d4af37;
+            font-weight: bold;
+        }
+
+        .comparison-table .check {
+            color: #4ade80;
+            text-align: center;
+        }
+
+        .comparison-table .cross {
+            color: #f87171;
+            text-align: center;
         }
 
         /* Ethical Principles */
@@ -378,6 +708,164 @@
             line-height: 1.6;
         }
 
+        /* Roadmap Section */
+        .roadmap {
+            padding: 8rem 0;
+        }
+
+        .roadmap-timeline {
+            max-width: 1000px;
+            margin: 3rem auto;
+        }
+
+        .roadmap-item {
+            display: grid;
+            grid-template-columns: 150px 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            padding-bottom: 3rem;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .roadmap-quarter {
+            font-size: 1.5rem;
+            font-weight: 300;
+            color: #d4af37;
+        }
+
+        .roadmap-content h4 {
+            font-size: 1.25rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .roadmap-features {
+            list-style: none;
+            padding: 0;
+            margin-top: 1rem;
+        }
+
+        .roadmap-features li {
+            padding: 0.5rem 0;
+            color: #666;
+            font-size: 0.875rem;
+        }
+
+        .roadmap-features li::before {
+            content: "•";
+            color: #d4af37;
+            margin-right: 0.75rem;
+        }
+
+        /* FAQ Section */
+        .faq {
+            padding: 8rem 0;
+            background: rgba(249, 249, 249, 0.3);
+        }
+
+        .faq-list {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #e5e5e5;
+            padding: 2rem 0;
+        }
+
+        .faq-question {
+            font-size: 1.25rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-question::after {
+            content: "+";
+            font-size: 1.5rem;
+            color: #d4af37;
+        }
+
+        .faq-question.open::after {
+            content: "−";
+        }
+
+        .faq-answer {
+            color: #666;
+            line-height: 1.8;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+
+        .faq-answer.open {
+            max-height: 500px;
+        }
+
+        /* Community Section */
+        .community {
+            padding: 8rem 0;
+        }
+
+        .community-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .community-stat {
+            text-align: center;
+            padding: 2rem;
+            border: 1px solid #e5e5e5;
+        }
+
+        .community-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .community-number {
+            font-size: 2rem;
+            font-weight: 300;
+            color: #d4af37;
+            margin-bottom: 0.5rem;
+        }
+
+        .community-label {
+            color: #666;
+            font-size: 0.875rem;
+        }
+
+        /* Newsletter Section */
+        .newsletter {
+            padding: 8rem 0;
+            background: rgba(249, 249, 249, 0.3);
+            text-align: center;
+        }
+
+        .newsletter-form {
+            max-width: 500px;
+            margin: 2rem auto;
+            display: flex;
+            gap: 1rem;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 1rem;
+            border: 1px solid #e5e5e5;
+            font-size: 1rem;
+        }
+
+        .newsletter-input:focus {
+            outline: none;
+            border-color: #d4af37;
+        }
+
         /* Download Section */
         .download {
             padding: 8rem 0;
@@ -416,18 +904,99 @@
             50% { opacity: 0; }
         }
 
+        .version-badges {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            padding: 0.5rem 1rem;
+            background: #f9f9f9;
+            border: 1px solid #e5e5e5;
+            font-size: 0.875rem;
+            font-family: 'Courier New', monospace;
+        }
+
+        /* Contributing Section */
+        .contributing {
+            padding: 8rem 0;
+            background: rgba(249, 249, 249, 0.3);
+        }
+
+        .contribute-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .contribute-card {
+            border: 1px solid #e5e5e5;
+            padding: 2rem;
+            background: #fff;
+        }
+
+        .contribute-card h3 {
+            font-size: 1.25rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .contribute-card p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
         /* Footer */
         footer {
             border-top: 1px solid #e5e5e5;
-            padding: 2rem 0;
+            padding: 4rem 0 2rem;
         }
 
-        .footer-content {
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h4 {
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links-list li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links-list a {
+            color: #666;
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: color 0.2s;
+        }
+
+        .footer-links-list a:hover {
+            color: #d4af37;
+        }
+
+        .footer-bottom {
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
             gap: 1rem;
+            padding-top: 2rem;
+            border-top: 1px solid #e5e5e5;
             font-size: 0.875rem;
             color: #666;
         }
@@ -473,12 +1042,16 @@
                 font-size: 2.5rem;
             }
 
-            .hero p {
+            .hero .tagline {
                 font-size: 1rem;
             }
 
             .section-title {
                 font-size: 2rem;
+            }
+
+            .two-column {
+                grid-template-columns: 1fr;
             }
 
             .doc-panel {
@@ -497,14 +1070,50 @@
                 gap: 1rem;
             }
 
-            .footer-content {
+            .nav-links {
+                display: none;
+            }
+
+            .roadmap-item {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-bottom {
                 flex-direction: column;
                 text-align: center;
+            }
+
+            .comparison-table {
+                font-size: 0.75rem;
+            }
+
+            .comparison-table th,
+            .comparison-table td {
+                padding: 0.75rem;
             }
         }
     </style>
 </head>
 <body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-content">
+            <div class="nav-logo">🧇 <span class="gold">Waffles</span></div>
+            <div class="nav-links">
+                <a href="#devices" class="nav-link">Devices</a>
+                <a href="#features" class="nav-link">Features</a>
+                <a href="#docs" class="nav-link">Docs</a>
+                <a href="#roadmap" class="nav-link">Roadmap</a>
+                <a href="#community" class="nav-link">Community</a>
+                <a href="#download" class="nav-link">Download</a>
+            </div>
+        </div>
+    </nav>
+
     <!-- PCB Background -->
     <div class="pcb-background">
         <svg class="pcb-grid" xmlns="http://www.w3.org/2000/svg">
@@ -522,18 +1131,74 @@
     <section class="hero">
         <div>
             <h1>Waffles <span class="gold">Firmware</span></h1>
-            <p>Ethical, transparent, consent-driven firmware for modern embedded systems</p>
-            <button class="btn-gold">
-                Explore Firmware
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="9 18 15 12 9 6"></polyline>
-                </svg>
-            </button>
+            <p class="tagline">Ethical, transparent, consent-driven firmware for modern embedded systems</p>
+            <p class="subtitle">Version 2.1.0 • MIT License • Production Ready</p>
+            <div>
+                <button class="btn-gold">
+                    Explore Firmware
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                </button>
+                <button class="btn-gold btn-outline">View on GitHub</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Bar -->
+    <section class="stats-bar">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>50K+</h3>
+                    <p>Active Installations</p>
+                </div>
+                <div class="stat-item">
+                    <h3>99.9%</h3>
+                    <p>Uptime Reliability</p>
+                </div>
+                <div class="stat-item">
+                    <h3>2.1ms</h3>
+                    <p>Average Response Time</p>
+                </div>
+                <div class="stat-item">
+                    <h3>Zero</h3>
+                    <p>Data Collection</p>
+                </div>
+                <div class="stat-item">
+                    <h3>15+</h3>
+                    <p>Supported Platforms</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Waffles Section -->
+    <section class="why-waffles">
+        <div class="container">
+            <h2 class="section-title">Why <span class="gold">Waffles?</span></h2>
+            <div class="two-column">
+                <div class="content-block">
+                    <h3>Built Different</h3>
+                    <p>Most firmware treats privacy as an afterthought. Waffles was designed from day one with consent, transparency, and user control as foundational principles—not features.</p>
+                    <p>Every decision, every line of code, every API call is designed to respect user autonomy and minimize data exposure.</p>
+                </div>
+                <div class="content-block">
+                    <ul class="feature-list">
+                        <li>No hidden telemetry or analytics</li>
+                        <li>Full source code transparency</li>
+                        <li>Cryptographically signed releases</li>
+                        <li>Community-driven development</li>
+                        <li>Military-grade encryption standards</li>
+                        <li>Regular security audits</li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Devices Section -->
-    <section class="devices">
+    <section class="devices" id="devices">
         <div class="container">
             <h2 class="section-title"><span class="gold">Supported</span> Devices</h2>
             <div class="device-grid">
@@ -561,12 +1226,72 @@
                     <div class="device-specs">ARM Cortex-M | 72MHz | 64KB RAM</div>
                     <div class="device-price">Free</div>
                 </div>
+                <div class="device-card">
+                    <div class="device-icon">🔷</div>
+                    <h3>Nordic nRF52</h3>
+                    <div class="device-specs">ARM M4F | BLE 5.0 | 512KB Flash</div>
+                    <div class="device-price">Free</div>
+                </div>
+                <div class="device-card">
+                    <div class="device-icon">🎯</div>
+                    <h3>Teensy 4.0</h3>
+                    <div class="device-specs">ARM M7 | 600MHz | 2MB Flash</div>
+                    <div class="device-price">Free</div>
+                </div>
+                <div class="device-card">
+                    <div class="device-icon">🌐</div>
+                    <h3>ESP8266</h3>
+                    <div class="device-specs">80MHz | WiFi | 4MB Flash</div>
+                    <div class="device-price">Free</div>
+                </div>
+                <div class="device-card">
+                    <div class="device-icon">⚡</div>
+                    <h3>Arduino Mega</h3>
+                    <div class="device-specs">ATmega2560 | 16MHz | 256KB Flash</div>
+                    <div class="device-price">Free</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Architecture Section -->
+    <section class="architecture">
+        <div class="container">
+            <h2 class="section-title"><span class="gold">System</span> Architecture</h2>
+            <div class="architecture-diagram">
+                <div class="arch-layer">
+                    <div class="arch-label">┌─ APPLICATION LAYER ─────────────────┐</div>
+                    <div>│  User Applications & Custom Logic   │</div>
+                    <div>└─────────────────────────────────────┘</div>
+                </div>
+                <div class="arch-arrow">↓ API Calls</div>
+                <div class="arch-layer">
+                    <div class="arch-label">┌─ CONSENT ENGINE ────────────────────┐</div>
+                    <div>│  Permission Management               │</div>
+                    <div>│  User Approval Flow                  │</div>
+                    <div>│  Cryptographic Verification          │</div>
+                    <div>└─────────────────────────────────────┘</div>
+                </div>
+                <div class="arch-arrow">↓ Authorized Requests</div>
+                <div class="arch-layer">
+                    <div class="arch-label">┌─ CORE SERVICES ─────────────────────┐</div>
+                    <div>│  Memory Manager  │  I/O Controller   │</div>
+                    <div>│  Network Stack   │  Crypto Library   │</div>
+                    <div>│  Event Bus       │  Storage Manager  │</div>
+                    <div>└─────────────────────────────────────┘</div>
+                </div>
+                <div class="arch-arrow">↓ System Calls</div>
+                <div class="arch-layer">
+                    <div class="arch-label">┌─ HARDWARE ABSTRACTION LAYER ────────┐</div>
+                    <div>│  Device Drivers & HAL                │</div>
+                    <div>└─────────────────────────────────────┘</div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Features Timeline -->
-    <section class="features">
+    <section class="features" id="features">
         <div class="container">
             <h2 class="section-title">Core <span class="gold">Features</span></h2>
             <div class="timeline">
@@ -579,7 +1304,7 @@
                     </div>
                     <div class="timeline-content">
                         <h3>Consent-First Architecture</h3>
-                        <p>Every interaction requires explicit user approval</p>
+                        <p>Every interaction requires explicit user approval. Built-in permission system with granular controls and time-limited access tokens.</p>
                     </div>
                 </div>
                 <div class="timeline-item">
@@ -591,7 +1316,7 @@
                     </div>
                     <div class="timeline-content">
                         <h3>Privacy by Design</h3>
-                        <p>Zero telemetry, zero tracking, zero data collection</p>
+                        <p>Zero telemetry, zero tracking, zero data collection. All processing happens locally on device with no external dependencies.</p>
                     </div>
                 </div>
                 <div class="timeline-item">
@@ -603,7 +1328,7 @@
                     </div>
                     <div class="timeline-content">
                         <h3>Transparent Source</h3>
-                        <p>Fully auditable, open-source codebase</p>
+                        <p>Fully auditable, open-source codebase. Every commit is signed, every release is reproducible, and all dependencies are vetted.</p>
                     </div>
                 </div>
                 <div class="timeline-item">
@@ -613,25 +1338,125 @@
                             <rect x="9" y="9" width="6" height="6"></rect>
                             <line x1="9" y1="1" x2="9" y2="4"></line>
                             <line x1="15" y1="1" x2="15" y2="4"></line>
-                            <line x1="9" y1="20" x2="9" y2="23"></line>
-                            <line x1="15" y1="20" x2="15" y2="23"></line>
-                            <line x1="20" y1="9" x2="23" y2="9"></line>
-                            <line x1="20" y1="14" x2="23" y2="14"></line>
-                            <line x1="1" y1="9" x2="4" y2="9"></line>
-                            <line x1="1" y1="14" x2="4" y2="14"></line>
                         </svg>
                     </div>
                     <div class="timeline-content">
                         <h3>Optimized Performance</h3>
-                        <p>Minimal overhead, maximum efficiency</p>
+                        <p>Minimal overhead with maximum efficiency. Average overhead of less than 3% compared to bare metal implementations.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                            <polyline points="2 17 12 22 22 17"></polyline>
+                            <polyline points="2 12 12 17 22 12"></polyline>
+                        </svg>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>Modular Design</h3>
+                        <p>Use only what you need. Every component can be enabled or disabled at compile time to minimize binary size.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                        </svg>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>Enterprise Security</h3>
+                        <p>AES-256 encryption, secure boot, code signing, and runtime integrity verification built in as standard.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Benchmarks Section -->
+    <section class="benchmarks">
+        <div class="container">
+            <h2 class="section-title"><span class="gold">Performance</span> Benchmarks</h2>
+            <div class="benchmark-grid">
+                <div class="benchmark-card">
+                    <div class="benchmark-value">2.1ms</div>
+                    <div class="benchmark-label">Boot Time (ESP32)</div>
+                    <div class="benchmark-bar">
+                        <div class="benchmark-fill" style="width: 95%"></div>
+                    </div>
+                </div>
+                <div class="benchmark-card">
+                    <div class="benchmark-value">2.8%</div>
+                    <div class="benchmark-label">Memory Overhead</div>
+                    <div class="benchmark-bar">
+                        <div class="benchmark-fill" style="width: 10%"></div>
+                    </div>
+                </div>
+                <div class="benchmark-card">
+                    <div class="benchmark-value">850KB</div>
+                    <div class="benchmark-label">Binary Size (Full Build)</div>
+                    <div class="benchmark-bar">
+                        <div class="benchmark-fill" style="width: 70%"></div>
+                    </div>
+                </div>
+                <div class="benchmark-card">
+                    <div class="benchmark-value">15K</div>
+                    <div class="benchmark-label">Operations/Second</div>
+                    <div class="benchmark-bar">
+                        <div class="benchmark-fill" style="width: 85%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Security Section -->
+    <section class="security">
+        <div class="container">
+            <h2 class="section-title"><span class="gold">Security</span> Features</h2>
+            <div class="security-grid">
+                <div class="security-card">
+                    <h3>Encryption</h3>
+                    <ul>
+                        <li>AES-256-GCM for data at rest</li>
+                        <li>TLS 1.3 for network communication</li>
+                        <li>ECDSA P-256 for code signing</li>
+                        <li>ChaCha20-Poly1305 for streaming</li>
+                    </ul>
+                </div>
+                <div class="security-card">
+                    <h3>Authentication</h3>
+                    <ul>
+                        <li>Hardware-backed key storage</li>
+                        <li>Multi-factor authentication support</li>
+                        <li>Time-based one-time passwords</li>
+                        <li>Biometric integration ready</li>
+                    </ul>
+                </div>
+                <div class="security-card">
+                    <h3>Integrity</h3>
+                    <ul>
+                        <li>Secure boot verification</li>
+                        <li>Runtime code integrity checks</li>
+                        <li>Memory protection (MPU/MMU)</li>
+                        <li>Stack canaries and ASLR</li>
+                    </ul>
+                </div>
+                <div class="security-card">
+                    <h3>Auditing</h3>
+                    <ul>
+                        <li>Comprehensive event logging</li>
+                        <li>Tamper detection mechanisms</li>
+                        <li>Regular security audits</li>
+                        <li>Bug bounty program active</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Documentation Panel -->
-    <section class="documentation">
+    <section class="documentation" id="docs">
         <div class="container">
             <h2 class="section-title"><span class="gold">Documentation</span></h2>
             <div class="doc-panel">
@@ -639,34 +1464,245 @@
                     <div class="doc-sidebar-title">Contents</div>
                     <div class="doc-nav">
                         <div class="doc-nav-item">Quick Start</div>
+                        <div class="doc-nav-item">Installation</div>
                         <div class="doc-nav-item">API Reference</div>
-                        <div class="doc-nav-item indent">Setup</div>
-                        <div class="doc-nav-item indent">Config</div>
-                        <div class="doc-nav-item indent">Build</div>
+                        <div class="doc-nav-item indent">Core API</div>
+                        <div class="doc-nav-item indent">Consent API</div>
+                        <div class="doc-nav-item indent">Crypto API</div>
+                        <div class="doc-nav-item indent">Network API</div>
+                        <div class="doc-nav-item">Configuration</div>
+                        <div class="doc-nav-item indent">Build Options</div>
+                        <div class="doc-nav-item indent">Runtime Config</div>
                         <div class="doc-nav-item">Examples</div>
+                        <div class="doc-nav-item indent">Basic Setup</div>
+                        <div class="doc-nav-item indent">WiFi Connection</div>
+                        <div class="doc-nav-item indent">Sensor Reading</div>
+                        <div class="doc-nav-item">Troubleshooting</div>
+                        <div class="doc-nav-item">Contributing</div>
                     </div>
                 </div>
                 <div class="doc-content">
                     <h3>Quick Start</h3>
+                    <p style="color: #666; margin-bottom: 1.5rem;">Get up and running with Waffles Firmware in under 5 minutes. This guide covers basic setup and your first consent-aware application.</p>
+                    
                     <div class="code-block">
                         <div>
-                            <span class="code-comment">// C Implementation</span>
+                            <span class="code-comment">// C Implementation - Basic Setup</span>
                             <pre>#include &lt;waffles.h&gt;
 
 void setup() {
+  // Initialize Waffles core
   waffles_init();
-  consent_request("data_access");
+  
+  // Request user consent for data access
+  if (consent_request("sensor_data_read")) {
+    Serial.println("Consent granted");
+  } else {
+    Serial.println("Consent denied");
+  }
+}
+
+void loop() {
+  // Your application logic
+  waffles_process_events();
+  delay(100);
 }</pre>
                         </div>
                         <div class="code-divider">
-                            <span class="code-comment">// Assembly</span>
+                            <span class="code-comment">// Assembly - Low-level consent check</span>
                             <pre>MOV R0, #CONSENT_FLAG
 BL  request_consent
-CMP R0, #1</pre>
+CMP R0, #1
+BEQ consent_granted
+B   consent_denied
+
+consent_granted:
+  ; Execute authorized code
+  BL  read_sensor_data
+  B   done
+
+consent_denied:
+  ; Handle denial gracefully
+  BL  display_error
+  
+done:
+  BX  LR</pre>
+                        </div>
+                    </div>
+
+                    <div class="code-block">
+                        <div>
+                            <span class="code-comment">// Advanced - Time-limited consent</span>
+                            <pre>#include &lt;waffles.h&gt;
+#include &lt;waffles_time.h&gt;
+
+// Request consent valid for 5 minutes
+consent_token_t token = consent_request_timed(
+  "network_access",
+  CONSENT_DURATION_MINUTES(5)
+);
+
+if (consent_is_valid(token)) {
+  // Perform network operations
+  wifi_connect();
+  http_post("/api/data", sensor_data);
+  wifi_disconnect();
+  
+  // Revoke consent early (optional)
+  consent_revoke(token);
+}</pre>
+                        </div>
+                    </div>
+
+                    <div class="code-block">
+                        <div>
+                            <span class="code-comment">// Multi-permission request</span>
+                            <pre>const char* permissions[] = {
+  "sensor_access",
+  "network_access",
+  "storage_write"
+};
+
+consent_token_t tokens[3];
+bool all_granted = consent_request_multiple(
+  permissions,
+  tokens,
+  3
+);
+
+if (all_granted) {
+  // All permissions granted
+  read_sensors();
+  upload_data();
+  save_locally();
+}</pre>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Installation Section -->
+    <section class="installation">
+        <div class="container">
+            <h2 class="section-title"><span class="gold">Installation</span> Guide</h2>
+            <div class="platform-tabs">
+                <div class="platform-tab active">Arduino IDE</div>
+                <div class="platform-tab">PlatformIO</div>
+                <div class="platform-tab">CMake</div>
+                <div class="platform-tab">Manual</div>
+            </div>
+            <div class="install-content">
+                <div class="code-block">
+                    <span class="code-comment">// Arduino IDE Installation</span>
+                    <pre>1. Open Arduino IDE
+2. Go to Tools → Manage Libraries
+3. Search for "Waffles Firmware"
+4. Click Install
+
+// Or install via Library Manager
+Sketch → Include Library → Add .ZIP Library
+Select waffles-firmware-2.1.0.zip</pre>
+                </div>
+                <div class="code-block">
+                    <span class="code-comment">// PlatformIO Installation</span>
+                    <pre>; Add to platformio.ini
+[env:esp32]
+platform = espressif32
+board = esp32dev
+lib_deps = 
+    waffles-firmware@^2.1.0
+
+; Or install via CLI
+pio lib install "waffles-firmware"</pre>
+                </div>
+                <div class="code-block">
+                    <span class="code-comment">// Build from source</span>
+                    <pre>$ git clone https://github.com/waffles/firmware.git
+$ cd firmware
+$ mkdir build && cd build
+$ cmake .. -DTARGET_PLATFORM=esp32
+$ make -j4
+$ make flash</pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Table -->
+    <section class="comparison">
+        <div class="container">
+            <h2 class="section-title"><span class="gold">Feature</span> Comparison</h2>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th class="highlight">Waffles</th>
+                        <th>Competitor A</th>
+                        <th>Competitor B</th>
+                        <th>Competitor C</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Open Source</td>
+                        <td class="check">✓</td>
+                        <td class="check">✓</td>
+                        <td class="cross">✗</td>
+                        <td class="check">✓</td>
+                    </tr>
+                    <tr>
+                        <td>Zero Telemetry</td>
+                        <td class="check">✓</td>
+                        <td class="cross">✗</td>
+                        <td class="cross">✗</td>
+                        <td class="cross">✗</td>
+                    </tr>
+                    <tr>
+                        <td>Consent System</td>
+                        <td class="check">✓</td>
+                        <td class="cross">✗</td>
+                        <td class="cross">✗</td>
+                        <td class="cross">✗</td>
+                    </tr>
+                    <tr>
+                        <td>Hardware Encryption</td>
+                        <td class="check">✓</td>
+                        <td class="check">✓</td>
+                        <td class="cross">✗</td>
+                        <td class="check">✓</td>
+                    </tr>
+                    <tr>
+                        <td>Real-time OS</td>
+                        <td class="check">✓</td>
+                        <td class="check">✓</td>
+                        <td class="check">✓</td>
+                        <td class="cross">✗</td>
+                    </tr>
+                    <tr>
+                        <td>Memory Footprint</td>
+                        <td class="highlight">850KB</td>
+                        <td>1.2MB</td>
+                        <td>2.1MB</td>
+                        <td>950KB</td>
+                    </tr>
+                    <tr>
+                        <td>Boot Time</td>
+                        <td class="highlight">2.1ms</td>
+                        <td>5.8ms</td>
+                        <td>12.3ms</td>
+                        <td>3.4ms</td>
+                    </tr>
+                    <tr>
+                        <td>License</td>
+                        <td class="highlight">MIT</td>
+                        <td>Apache 2.0</td>
+                        <td>Proprietary</td>
+                        <td>GPL v3</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </section>
 
@@ -678,24 +1714,188 @@ CMP R0, #1</pre>
                 <div class="principle-card">
                     <div class="principle-number">1</div>
                     <h3>Informed Consent</h3>
-                    <p>Users must understand and approve all firmware actions</p>
+                    <p>Users must understand and approve all firmware actions. Clear, human-readable permission requests with detailed explanations.</p>
                 </div>
                 <div class="principle-card">
                     <div class="principle-number">2</div>
                     <h3>Data Minimization</h3>
-                    <p>Collect nothing, store nothing, transmit nothing</p>
+                    <p>Collect nothing, store nothing, transmit nothing unless explicitly required and approved by the user.</p>
                 </div>
                 <div class="principle-card">
                     <div class="principle-number">3</div>
                     <h3>Radical Transparency</h3>
-                    <p>Every line of code is open for inspection</p>
+                    <p>Every line of code is open for inspection. Full documentation of all behaviors and data flows.</p>
+                </div>
+                <div class="principle-card">
+                    <div class="principle-number">4</div>
+                    <h3>User Control</h3>
+                    <p>Users own their devices and data. Full ability to inspect, modify, and control all firmware behavior.</p>
+                </div>
+                <div class="principle-card">
+                    <div class="principle-number">5</div>
+                    <h3>Security First</h3>
+                    <p>Security is not optional. Military-grade encryption and authentication are standard, not premium features.</p>
+                </div>
+                <div class="principle-card">
+                    <div class="principle-number">6</div>
+                    <h3>Community Driven</h3>
+                    <p>Development is guided by community needs, not corporate interests. All voices are heard.</p>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Roadmap Section -->
+    <section class="roadmap" id="roadmap">
+        <div class="container">
+            <h2 class="section-title"><span class="gold">Development</span> Roadmap</h2>
+            <div class="roadmap-timeline">
+                <div class="roadmap-item">
+                    <div class="roadmap-quarter">Q1 2025</div>
+                    <div class="roadmap-content">
+                        <h4>Performance & Optimization</h4>
+                        <ul class="roadmap-features">
+                            <li>Zero-copy networking stack</li>
+                            <li>Advanced power management modes</li>
+                            <li>SIMD acceleration for crypto operations</li>
+                            <li>Sub-millisecond boot time target</li>
+                            <li>Memory pool optimization</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="roadmap-item">
+                    <div class="roadmap-quarter">Q2 2025</div>
+                    <div class="roadmap-content">
+                        <h4>Enhanced Security</h4>
+                        <ul class="roadmap-features">
+                            <li>Quantum-resistant cryptography</li>
+                            <li>Hardware security module support</li>
+                            <li>Formal verification of core modules</li>
+                            <li>Advanced threat detection</li>
+                            <li>Secure enclave integration</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="roadmap-item">
+                    <div class="roadmap-quarter">Q3 2025</div>
+                    <div class="roadmap-content">
+                        <h4>Platform Expansion</h4>
+                        <ul class="roadmap-features">
+                            <li>RISC-V architecture support</li>
+                            <li>WebAssembly runtime</li>
+                            <li>Zephyr RTOS integration</li>
+                            <li>Rust API bindings</li>
+                            <li>Mobile SDK (iOS/Android)</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="roadmap-item">
+                    <div class="roadmap-quarter">Q4 2025</div>
+                    <div class="roadmap-content">
+                        <h4>Developer Experience</h4>
+                        <ul class="roadmap-features">
+                            <li>Visual firmware builder</li>
+                            <li>Cloud-based testing platform</li>
+                            <li>AI-powered debugging assistant</li>
+                            <li>Interactive documentation</li>
+                            <li>Certification program launch</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq">
+        <div class="container">
+            <h2 class="section-title"><span class="gold">Frequently</span> Asked Questions</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">Is Waffles Firmware really free?</div>
+                    <div class="faq-answer">Yes, completely free. Waffles is open-source under the MIT license. You can use it commercially, modify it, and redistribute it without any fees or royalties.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">How does consent-first architecture work?</div>
+                    <div class="faq-answer">Every sensitive operation requires explicit user approval before execution. The firmware maintains a permission ledger and validates consent tokens before allowing operations like network access, sensor reading, or data storage. Permissions can be time-limited and revoked at any time.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">What about performance overhead?</div>
+                    <div class="faq-answer">The consent system adds minimal overhead—typically less than 3% compared to bare metal. Most operations are zero-copy and the permission checks are highly optimized. You can disable features you don't need at compile time to further reduce footprint.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Can I use this in commercial products?</div>
+                    <div class="faq-answer">Absolutely. The MIT license permits commercial use without restrictions. Many companies already use Waffles in production devices. We only ask that you contribute improvements back to the community when possible.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">How is security audited?</div>
+                    <div class="faq-answer">We conduct quarterly security audits with independent third-party firms. All findings are published transparently. We also run an active bug bounty program and have formal verification for critical components.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">What platforms are supported?</div>
+                    <div class="faq-answer">Currently 15+ platforms including Arduino, ESP32, Raspberry Pi Pico, STM32, Nordic nRF52, and more. We're constantly adding new platform support based on community requests.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">How do I contribute?</div>
+                    <div class="faq-answer">We welcome all contributions! Check our GitHub repository for open issues, read the contributing guidelines, and join our community Discord. Contributions can be code, documentation, testing, or even financial support.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Is there commercial support available?</div>
+                    <div class="faq-answer">Yes, we offer enterprise support contracts including priority bug fixes, custom feature development, on-site training, and architectural consulting. Contact us for pricing.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Section -->
+    <section class="community" id="community">
+        <div class="container">
+            <h2 class="section-title"><span class="gold">Join</span> Our Community</h2>
+            <div class="community-stats">
+                <div class="community-stat">
+                    <div class="community-icon">👥</div>
+                    <div class="community-number">12.5K</div>
+                    <div class="community-label">Community Members</div>
+                </div>
+                <div class="community-stat">
+                    <div class="community-icon">💬</div>
+                    <div class="community-number">850+</div>
+                    <div class="community-label">Active Contributors</div>
+                </div>
+                <div class="community-stat">
+                    <div class="community-icon">🌟</div>
+                    <div class="community-number">28K</div>
+                    <div class="community-label">GitHub Stars</div>
+                </div>
+                <div class="community-stat">
+                    <div class="community-icon">🔀</div>
+                    <div class="community-number">4.2K</div>
+                    <div class="community-label">Forks</div>
+                </div>
+                <div class="community-stat">
+                    <div class="community-icon">📝</div>
+                    <div class="community-number">2.1K</div>
+                    <div class="community-label">Commits This Month</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter">
+        <div class="container">
+            <h2 class="section-title">Stay <span class="gold">Updated</span></h2>
+            <p style="color: #666; margin-bottom: 2rem;">Get notified about new releases, security updates, and community events.</p>
+            <form class="newsletter-form">
+                <input type="email" class="newsletter-input" placeholder="your@email.com" required>
+                <button type="submit" class="btn-gold">Subscribe</button>
+            </form>
+            <p style="color: #999; font-size: 0.875rem; margin-top: 1rem;">We respect your privacy. No spam, ever. Unsubscribe anytime.</p>
+        </div>
+    </section>
+
     <!-- Download Section -->
-    <section class="download">
+    <section class="download" id="download">
         <div class="container">
             <h2 class="section-title"><span class="gold">Download</span> Waffles</h2>
             <div class="terminal">
@@ -709,25 +1909,121 @@ CMP R0, #1</pre>
                 </div>
                 <div class="terminal-line">
                     <span class="terminal-prompt">$</span>
+                    <span>waffles --version</span>
+                </div>
+                <div class="terminal-line">
+                    <span style="color: #4ade80;">waffles-firmware v2.1.0 (build 20250117)</span>
+                </div>
+                <div class="terminal-line">
+                    <span class="terminal-prompt">$</span>
                     <span class="cursor">_</span>
                 </div>
             </div>
-            <button class="btn-gold">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                    <polyline points="7 10 12 15 17 10"></polyline>
-                    <line x1="12" y1="15" x2="12" y2="3"></line>
-                </svg>
-                Download Latest Release
-            </button>
+            <div>
+                <button class="btn-gold">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="7 10 12 15 17 10"></polyline>
+                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg>
+                    Download v2.1.0
+                </button>
+                <button class="btn-gold btn-outline">View Release Notes</button>
+            </div>
+            <div class="version-badges">
+                <div class="badge">Stable: v2.1.0</div>
+                <div class="badge">Beta: v2.2.0-rc1</div>
+                <div class="badge">LTS: v1.8.5</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contributing Section -->
+    <section class="contributing">
+        <div class="container">
+            <h2 class="section-title"><span class="gold">Contribute</span> to Waffles</h2>
+            <div class="contribute-grid">
+                <div class="contribute-card">
+                    <h3>🔨 Code Contributions</h3>
+                    <p>Help improve Waffles by submitting bug fixes, new features, or platform support. Check our GitHub issues for good first issues.</p>
+                    <button class="btn-gold btn-outline">View Issues</button>
+                </div>
+                <div class="contribute-card">
+                    <h3>📚 Documentation</h3>
+                    <p>Improve guides, write tutorials, or translate documentation. Clear docs help everyone build better projects.</p>
+                    <button class="btn-gold btn-outline">Edit Docs</button>
+                </div>
+                <div class="contribute-card">
+                    <h3>🐛 Testing & QA</h3>
+                    <p>Test pre-release versions, report bugs, and help verify fixes. Your hardware might uncover important issues.</p>
+                    <button class="btn-gold btn-outline">Join Testing</button>
+                </div>
+                <div class="contribute-card">
+                    <h3>💰 Financial Support</h3>
+                    <p>Sponsor development through GitHub Sponsors or OpenCollective. Funds support infrastructure and security audits.</p>
+                    <button class="btn-gold btn-outline">Become a Sponsor</button>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
         <div class="container">
-            <div class="footer-content">
-                <div>© 2025 Waffles Firmware. All rights reserved.</div>
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h4>Project</h4>
+                    <ul class="footer-links-list">
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Roadmap</a></li>
+                        <li><a href="#">Changelog</a></li>
+                        <li><a href="#">Status</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul class="footer-links-list">
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">API Reference</a></li>
+                        <li><a href="#">Examples</a></li>
+                        <li><a href="#">Tutorials</a></li>
+                        <li><a href="#">Videos</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Community</h4>
+                    <ul class="footer-links-list">
+                        <li><a href="#">Discord</a></li>
+                        <li><a href="#">Forums</a></li>
+                        <li><a href="#">Reddit</a></li>
+                        <li><a href="#">Stack Overflow</a></li>
+                        <li><a href="#">Meetups</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul class="footer-links-list">
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Enterprise</a></li>
+                        <li><a href="#">Training</a></li>
+                        <li><a href="#">Consulting</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul class="footer-links-list">
+                        <li><a href="#">License (MIT)</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Security</a></li>
+                        <li><a href="#">Responsible Disclosure</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div>© 2025 Waffles Firmware Project. All rights reserved.</div>
                 <div class="footer-links">
                     <a href="#" class="footer-link">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -741,9 +2037,14 @@ CMP R0, #1</pre>
                             <polyline points="14 2 14 8 20 8"></polyline>
                             <line x1="16" y1="13" x2="8" y2="13"></line>
                             <line x1="16" y1="17" x2="8" y2="17"></line>
-                            <polyline points="10 9 9 9 8 9"></polyline>
                         </svg>
                         Docs
+                    </a>
+                    <a href="#" class="footer-link">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+                        </svg>
+                        Twitter
                     </a>
                     <span class="waffle">🧇</span>
                 </div>
@@ -767,6 +2068,70 @@ CMP R0, #1</pre>
 
         document.querySelectorAll('.timeline-item').forEach(item => {
             observer.observe(item);
+        });
+
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                const isOpen = question.classList.contains('open');
+                
+                // Close all other FAQs
+                document.querySelectorAll('.faq-question').forEach(q => {
+                    q.classList.remove('open');
+                    q.nextElementSibling.classList.remove('open');
+                });
+                
+                // Toggle current FAQ
+                if (!isOpen) {
+                    question.classList.add('open');
+                    answer.classList.add('open');
+                }
+            });
+        });
+
+        // Platform tabs (simple demo)
+        document.querySelectorAll('.platform-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                document.querySelectorAll('.platform-tab').forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+            });
+        });
+
+        // Smooth scroll for nav links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Newsletter form (demo)
+        document.querySelector('.newsletter-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Thanks for subscribing! (This is a demo)');
+        });
+
+        // Animate benchmark bars on scroll
+        const benchmarkObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const fills = entry.target.querySelectorAll('.benchmark-fill');
+                    fills.forEach(fill => {
+                        fill.style.width = fill.style.width || '0%';
+                    });
+                }
+            });
+        }, { threshold: 0.3 });
+
+        document.querySelectorAll('.benchmark-card').forEach(card => {
+            benchmarkObserver.observe(card);
         });
     </script>
 </body>
