@@ -1,108 +1,43 @@
-Waffles Firmware
-
-Ethical hacking & defensive cybersecurity firmware for embedded devices
-Lightweight, audit-friendly firmware and tooling designed for responsible security research, lab-based pentesting, and device hardening practice. Built with transparency, testability, and strong ethical safeguards at the core.
-
-Key features
-
-Minimal, auditable firmware stack for common microcontrollers (template-based, hardware-agnostic).
-
-Secure boot & basic runtime integrity checks (reference implementations).
-
-Safe, sandboxed diagnostic tools for network/USB/serial observation in lab environments.
-
-Logging & forensics hooks to capture reproducible test artifacts.
-
-CI-friendly build matrix and firmware signing examples.
-
-Developer-focused: comprehensive docs, unit tests, and example lab topologies.
-
-Strong emphasis on legality, consent and responsible disclosure — for research/use in controlled environments only.
-
 🧠 Supported Devices & Interfaces
-Platform / MCU	Board Example	Template	Build Status	Wi-Fi	BLE	RF	FM	nRF24	Mic	NFC	IR	Notes
-ESP32	ESP32-DevKitC, ESP32-WROOM	templates/esp32/	✅ Stable	✅	✅	✅	—	—	✅	⚙️	✅	Full support for Wi-Fi/BLE + optional mic input and IR; great for network labs
-STM32	Nucleo-F446RE, Blue Pill	templates/stm32/	⚙️ In Progress	—	—	✅	—	✅	⚙️	—	✅	Good RF/nRF24 lab target; mic integration WIP
-RP2040	Raspberry Pi Pico	templates/rp2040/	🚧 Experimental	—	✅ (addon)	✅	—	✅	✅	—	✅	Versatile teaching board; supports modular sensors
-ATmega328P	Arduino Uno	templates/atmega328p/	✅ Stable	—	—	✅	—	✅	⚙️	—	✅	Excellent low-level RF and IR example
-ESP8266	NodeMCU	templates/esp8266/	⚙️ In Progress	✅	—	✅	—	—	—	—	—	Legacy Wi-Fi stack, telemetry only
-x86 VM Simulator	QEMU / VirtualBox	templates/sim/	✅ Stable	Sim	Sim	Sim	Sim	Sim	Sim	Sim	Sim	Perfect for safe virtual labs, CI, and firmware logic testing
 
+Waffles Firmware supports a range of embedded boards and virtual platforms. Below is a detailed compatibility matrix including connectivity options, peripheral support, and estimated retail prices (USD, 2025).
+
+Legend:
 ✅ = Supported ⚙️ = In Progress 🚧 = Experimental — = Not applicable Sim = Simulated support (no real hardware access)
 
-🧩 More devices and modules (ESP32-S3, Teensy 4.1, Raspberry Pi CM4) are planned. Contributions for new interfaces welcome — see CONTRIBUTING.md.
+Platform / MCU	Board Example	Template	Build Status	Wi-Fi	BLE	RF	FM	nRF24	Mic	NFC	IR	Est. Price (USD)	Notes
+ESP32	ESP32-DevKitC, ESP32-WROOM	templates/esp32/	✅ Stable	✅	✅	✅	—	—	✅	⚙️	✅	$8 – $12	Full support for Wi-Fi, BLE, RF, optional Mic and IR. Ideal for network labs and pentest simulations.
+STM32	Nucleo-F446RE, Blue Pill	templates/stm32/	⚙️ In Progress	—	—	✅	—	✅	⚙️	—	✅	$10 – $20	Supports RF & nRF24. Mic support in progress. Great for hardware hacking exercises.
+RP2040	Raspberry Pi Pico	templates/rp2040/	🚧 Experimental	—	✅ (addon)	✅	—	✅	✅	—	✅	$4 – $8	Lightweight and modular. Supports BLE, RF, Mic, and IR. Perfect for educational labs.
+ATmega328P	Arduino Uno R3	templates/atmega328p/	✅ Stable	—	—	✅	—	✅	⚙️	—	✅	$12 – $18	Classic Arduino platform for low-level RF, IR, and educational security experiments.
+ESP8266	NodeMCU	templates/esp8266/	⚙️ In Progress	✅	—	✅	—	—	—	—	—	$5 – $8	Legacy Wi-Fi support. Good for telemetry and IoT experiments.
+BBC micro:bit v2	nRF52833 SoC	templates/microbitv2/	✅ Stable	—	✅	✅	—	✅ (addon)	✅	—	✅	$18 – $25	Built-in BLE, Mic, buttons, accelerometer. Excellent for educational demos and security teaching.
+x86 VM Simulator	QEMU / VirtualBox	templates/sim/	✅ Stable	Sim	Sim	Sim	Sim	Sim	Sim	Sim	Sim	Free	Simulated platform for safe lab exercises, CI builds, and testing firmware logic.
+💡 Notes on Interface Support
 
-Who it's for
+Wi-Fi / BLE — Network experimentation, pentesting exercises, and IoT security simulations.
 
-Security researchers building reproducible embedded-device tests.
+RF / nRF24 — Low-power wireless communication experiments and lab simulations.
 
-Red-team/blue-team labs that need a safe, auditable firmware baseline.
+FM — Experimental radio signal reception (lab-only).
 
-Educators teaching secure embedded development and ethical hacking.
+Mic — Audio input for signal analysis or detection labs.
 
-Device teams who want a reference for hardening their own firmware.
+NFC — Secure tag reading/writing for safe hacking simulations.
 
-Quick start (safe, high-level)
+IR — Remote-control signal testing, IR communication labs.
 
-Clone the repo.
+Tip: All hardware features should be tested in controlled lab environments with consented devices only. Avoid using Waffles Firmware on live production hardware.
 
-Pick the device template matching your lab hardware (e.g., templates/esp32).
+🔧 Upcoming Devices & Modules
 
-Build with the provided Makefile/CMake scripts.
+We plan to expand support for:
 
-Flash only to lab-owned, consented devices or contained hardware-in-the-loop rigs.
+ESP32-S3 / ESP32-C3 — Enhanced BLE and Wi-Fi modules.
 
-Use the included test suite and VM-based sims before running on physical devices.
+Teensy 4.1 — High-speed microcontroller for advanced RF experiments.
 
-⚠️ Important: Waffles Firmware is for ethical research, education, and defensive testing in controlled environments only.
-Do not deploy to devices connected to production networks or devices you do not own/explicitly have permission to test.
+Raspberry Pi Compute Module 4 — Full lab-grade experimentation platform.
 
-Example repo README badges
-[![Build Status](https://img.shields.io/github/actions/workflow/status/your-org/waffles-firmware/ci.yml?branch=main)]()
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)]()
-[![Issues Welcome](https://img.shields.io/badge/Issues-welcome-brightgreen)]()
-
-Project layout
-/docs               # Design docs, threat model, lab setup guides
-/src                # Firmware source (device templates)
-/tools              # Helper scripts (builders, signers, log parsers)
-/tests              # Unit & integration tests + simulation harness
-/examples           # Example lab topologies and workflows
-/CONTRIBUTING.md
-/SECURITY.md
-/LICENSE
-
-Responsible use & legal / ethical policy
-
-Waffles Firmware is explicitly intended for lawful, consensual security research and defensive testing. By using this project you agree to:
-
-Only run firmware on devices you own or have explicit written permission to test.
-
-Use a segregated lab network or isolated hardware-in-the-loop environment for all tests.
-
-Follow all applicable laws and institutional policies.
-
-Respect privacy; never capture or exfiltrate production data without permission.
-
-Report vulnerabilities responsibly following the SECURITY.md responsible disclosure process.
-
-Contributing
-
-Contributions are welcome — especially improvements that increase safety, auditability, and testability.
-Please read CONTRIBUTING.md and SECURITY.md before submitting PRs. Suggested contribution areas:
-
-New device templates and CI build profiles.
-
-Additional defensive features (secure update workflows, attestation examples).
-
-Test suites and simulators for safe validation.
-
-Docs: lab setup, legal checklist, classroom exercises.
-
-License
-
-MIT License — see LICENSE for details.
-
-GitHub Topics
-
-embedded · firmware · cybersecurity · ethical-hacking · pentest-lab · iot-security · secure-boot · forensics · education
+Contributions for device templates and module integrations are highly encouraged. See CONTRIBUTING.md
+ for guidelines.
