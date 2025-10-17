@@ -43,8 +43,3 @@ Device teams who want a reference for hardening their own firmware.
 ⚠️ Important: Waffles Firmware is for ethical research, education, and defensive testing in controlled environments only.
 Do not deploy to devices connected to production networks or devices you do not own/explicitly have permission to test.
 If you do not follow these instructions you could face serious trouble.
-
-
-
-
-⚠️ Important: Waffles Firmware is for ethical research, education, and defensive testing in controlled environments only. Do not deploy to devices connected to production networks or devices you do not own/explicitly have permission to test.
