@@ -1,45 +1,73 @@
-# Waffles Firmware
+# Welcome to your Lovable project
 
-Ethical hacking & defensive cybersecurity firmware for embedded devices
-Lightweight, audit-friendly firmware and tooling designed for responsible security research, lab-based pentesting, and device hardening practice. Built with transparency, testability, and strong ethical safeguards at the core.
+## Project info
 
-### Key features
+**URL**: https://lovable.dev/projects/3d5785a9-9244-48d9-a1ce-7991ab1c45ea
 
-Minimal, auditable firmware stack for common microcontrollers (template-based, hardware-agnostic).
+## How can I edit this code?
 
-Secure boot & basic runtime integrity checks (reference implementations).
+There are several ways of editing your application.
 
-Safe, sandboxed diagnostic tools for network/USB/serial observation in lab environments.
+**Use Lovable**
 
-Logging & forensics hooks to capture reproducible test artifacts.
+Simply visit the [Lovable Project](https://lovable.dev/projects/3d5785a9-9244-48d9-a1ce-7991ab1c45ea) and start prompting.
 
-CI-friendly build matrix and firmware signing examples.
+Changes made via Lovable will be committed automatically to this repo.
 
-Developer-focused: comprehensive docs, unit tests, and example lab topologies.
+**Use your preferred IDE**
 
-Strong emphasis on legality, consent and responsible disclosure — for research/use in controlled environments only.
+If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
 
-### Who it's for
+The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
 
-Security researchers building reproducible embedded-device tests.
+Follow these steps:
 
-Red-team/blue-team labs that need a safe, auditable firmware baseline.
+```sh
+# Step 1: Clone the repository using the project's Git URL.
+git clone <YOUR_GIT_URL>
 
-Educators teaching secure embedded development and ethical hacking.
+# Step 2: Navigate to the project directory.
+cd <YOUR_PROJECT_NAME>
 
-Device teams who want a reference for hardening their own firmware.
+# Step 3: Install the necessary dependencies.
+npm i
 
-### Supported Devices
+# Step 4: Start the development server with auto-reloading and an instant preview.
+npm run dev
+```
 
-| Platform / MCU       | Board Example              | Template                | Build Status    | Wi-Fi |    BLE    |  RF |  FM |   nRF24   | Mic | NFC |  IR | Est. Price (USD) | Notes                                                                       |
-| -------------------- | -------------------------- | ----------------------- | --------------- | :---: | :-------: | :-: | :-: | :-------: | :-: | :-: | :-: | ---------------: | --------------------------------------------------------------------------- |
-| **ESP32**            | ESP32-DevKitC, ESP32-WROOM | `templates/esp32/`      | ⚙️ In Progress       |   ✅   |     ✅     |  ✅  |  —  |     —     |  ✅  |  ⚙️ |  ✅  |     **$8 – $12** | Full support for Wi-Fi/BLE + optional mic and IR; great for network labs    |
-| **STM32**            | Nucleo-F446RE, Blue Pill   | `templates/stm32/`      | ⚙️ In Progress  |   —   |     —     |  ✅  |  —  |     ✅     |  ⚙️ |  —  |  ✅  |    **$10 – $20** | Good RF/nRF24 lab target; mic integration WIP                               |
-| **RP2040**           | Raspberry Pi Pico          | `templates/rp2040/`     | ⚙️ In Progress |   —   | ✅ (addon) |  ✅  |  —  |     ✅     |  ✅  |  —  |  ✅  |      **$4 – $8** | Versatile teaching board; supports modular sensors                          |
-| **ATmega328P**       | Arduino Uno R3             | `templates/atmega328p/` | ⚙️ In Progress      |   —   |     —     |  ✅  |  —  |     ✅     |  ⚙️ |  —  |  ✅  |    **$12 – $18** | Excellent low-level RF and IR example                                       |
-| **ESP8266**          | NodeMCU                    | `templates/esp8266/`    | ⚙️ In Progress  |   ✅   |     —     |  ✅  |  —  |     —     |  —  |  —  |  —  |      **$5 – $8** | Legacy Wi-Fi stack, telemetry only                                          |
-| **BBC micro:bit v2** | nRF52833 SoC               | `templates/microbitv2/` | ⚙️ In Progress        |   —   |     ✅     |  ✅  |  —  | ✅ (addon) |  ✅  |  —  |  ✅  |    **$18 – $25** | Built-in BLE, mic, buttons & sensors — ideal for educational security demos |
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-⚠️ Important: Waffles Firmware is for ethical research, education, and defensive testing in controlled environments only.
-Do not deploy to devices connected to production networks or devices you do not own/explicitly have permission to test.
-If you do not follow these instructions you could face serious trouble.
+**Edit a file directly in GitHub**
+
+- Navigate to the desired file(s).
+- Click the "Edit" button (pencil icon) at the top right of the file view.
+- Make your changes and commit the changes.
+
+**Use GitHub Codespaces**
+
+- Navigate to the main page of your repository.
+- Click on the "Code" button (green button) near the top right.
+- Select the "Codespaces" tab.
+- Click on "New codespace" to launch a new Codespace environment.
+- Edit files directly within the Codespace and commit and push your changes once you're done.
+
+## What technologies are used for this project?
+
+This project is built with:
+
+- Vite
+- TypeScript
+- React
+- shadcn-ui
+- Tailwind CSS
+
+## How can I deploy this project?
+
+Simply open [Lovable](https://lovable.dev/projects/3d5785a9-9244-48d9-a1ce-7991ab1c45ea) and click on Share -> Publish.
+
+## Can I connect a custom domain to my Lovable project?
+
+Yes, you can!
+
+To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+
+Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
