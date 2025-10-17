@@ -1,24 +1,773 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Waffles Firmware - Ethical, Transparent, Consent-Driven</title>
-    <meta name="description" content="Ethical, transparent, consent-driven firmware for modern embedded systems. Privacy-first architecture for Arduino, ESP32, Raspberry Pi, and STM32." />
-    <meta name="author" content="Waffles Firmware" />
+    <meta name="description" content="Ethical, transparent, consent-driven firmware for modern embedded systems. Privacy-first architecture for Arduino, ESP32, Raspberry Pi, and STM32.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    <meta property="og:title" content="Waffles Firmware - Ethical Embedded Systems" />
-    <meta property="og:description" content="Consent-first, privacy-focused firmware for modern embedded devices." />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', sans-serif;
+            background: #ffffff;
+            color: #000000;
+            overflow-x: hidden;
+        }
 
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@lovable_dev" />
-    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
-  </head>
+        /* PCB Background */
+        .pcb-background {
+            position: fixed;
+            inset: 0;
+            opacity: 0.2;
+            pointer-events: none;
+            z-index: 0;
+        }
 
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+        .pcb-grid {
+            width: 100%;
+            height: 100%;
+            animation: pcb-drift 20s ease-in-out infinite;
+        }
+
+        @keyframes pcb-drift {
+            0% { transform: translate(0, 0); }
+            50% { transform: translate(20px, 10px); }
+            100% { transform: translate(0, 0); }
+        }
+
+        /* Layout */
+        section {
+            position: relative;
+            z-index: 1;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            font-weight: 300;
+            letter-spacing: -0.02em;
+            margin-bottom: 1rem;
+        }
+
+        .hero .gold {
+            color: #d4af37;
+            font-weight: 400;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: #666;
+            font-weight: 300;
+            letter-spacing: 0.02em;
+            margin-bottom: 2rem;
+        }
+
+        .btn-gold {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            background: #d4af37;
+            color: #000;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn-gold:hover {
+            background: #b8941f;
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2);
+        }
+
+        .btn-gold svg {
+            transition: transform 0.3s;
+        }
+
+        .btn-gold:hover svg {
+            transform: translateX(4px);
+        }
+
+        /* Devices Section */
+        .devices {
+            padding: 8rem 0;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            font-weight: 300;
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .device-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .device-card {
+            background: #fff;
+            border: 1px solid #e5e5e5;
+            padding: 2rem;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .device-card:hover {
+            background: #000;
+            border-color: #000;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .device-icon {
+            font-size: 3rem;
+            opacity: 0.6;
+            margin-bottom: 1.5rem;
+            transition: opacity 0.3s;
+        }
+
+        .device-card:hover .device-icon {
+            opacity: 1;
+        }
+
+        .device-card h3 {
+            font-size: 1.25rem;
+            font-weight: 500;
+            margin-bottom: 0.75rem;
+            transition: color 0.3s;
+        }
+
+        .device-card:hover h3 {
+            color: #fff;
+        }
+
+        .device-specs {
+            font-size: 0.875rem;
+            color: #666;
+            font-family: 'Courier New', monospace;
+            margin-bottom: 1rem;
+            transition: color 0.3s;
+        }
+
+        .device-card:hover .device-specs {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .device-price {
+            color: #d4af37;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .device-card:hover .device-price {
+            color: #fff;
+        }
+
+        /* Features Timeline */
+        .features {
+            padding: 8rem 0;
+            background: rgba(249, 249, 249, 0.3);
+        }
+
+        .timeline {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 2rem;
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            background: #e5e5e5;
+        }
+
+        .timeline-item {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 4rem;
+            align-items: flex-start;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.7s;
+        }
+
+        .timeline-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .timeline-icon {
+            position: relative;
+            z-index: 1;
+            padding: 1rem;
+            background: #fff;
+            border: 2px solid #d4af37;
+            border-radius: 8px;
+            flex-shrink: 0;
+        }
+
+        .timeline-icon svg {
+            width: 24px;
+            height: 24px;
+            stroke: #d4af37;
+        }
+
+        .timeline-content h3 {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-content p {
+            color: #666;
+        }
+
+        /* Documentation Panel */
+        .documentation {
+            padding: 8rem 0;
+        }
+
+        .doc-panel {
+            display: flex;
+            border: 1px solid #e5e5e5;
+            overflow: hidden;
+        }
+
+        .doc-sidebar {
+            width: 256px;
+            background: #141414;
+            color: #fff;
+            padding: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .doc-sidebar-title {
+            color: #d4af37;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            font-size: 1.125rem;
+        }
+
+        .doc-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .doc-nav-item {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: color 0.2s;
+            cursor: pointer;
+        }
+
+        .doc-nav-item:hover {
+            color: #fff;
+        }
+
+        .doc-nav-item.indent {
+            padding-left: 1rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .doc-content {
+            flex: 1;
+            background: #fff;
+            padding: 2rem;
+        }
+
+        .doc-content h3 {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-bottom: 1.5rem;
+        }
+
+        .code-block {
+            background: rgba(249, 249, 249, 0.5);
+            padding: 1.5rem;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.875rem;
+            overflow-x: auto;
+        }
+
+        .code-comment {
+            color: #d4af37;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .code-block pre {
+            margin: 0.5rem 0;
+            line-height: 1.6;
+        }
+
+        .code-divider {
+            padding-top: 1rem;
+            margin-top: 1rem;
+            border-top: 1px solid rgba(229, 229, 229, 0.3);
+        }
+
+        /* Ethical Principles */
+        .principles {
+            padding: 8rem 0;
+            background: rgba(249, 249, 249, 0.3);
+        }
+
+        .principles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .principle-card {
+            text-align: center;
+        }
+
+        .principle-number {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto 1rem;
+            border: 2px solid #d4af37;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 300;
+            color: #d4af37;
+        }
+
+        .principle-card h3 {
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: #d4af37;
+            margin-bottom: 1rem;
+        }
+
+        .principle-card p {
+            color: #666;
+            font-size: 0.875rem;
+            line-height: 1.6;
+        }
+
+        /* Download Section */
+        .download {
+            padding: 8rem 0;
+            text-align: center;
+        }
+
+        .terminal {
+            background: #141414;
+            color: #fff;
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: left;
+            font-family: 'Courier New', monospace;
+            font-size: 0.875rem;
+            max-width: 800px;
+            margin: 3rem auto;
+        }
+
+        .terminal-line {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .terminal-prompt {
+            color: #d4af37;
+        }
+
+        .cursor {
+            animation: cursor-blink 1s step-end infinite;
+        }
+
+        @keyframes cursor-blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid #e5e5e5;
+            padding: 2rem 0;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            font-size: 0.875rem;
+            color: #666;
+        }
+
+        .footer-links {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .footer-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #666;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-link:hover {
+            color: #d4af37;
+        }
+
+        .footer-link svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .waffle {
+            font-size: 1.25rem;
+            display: inline-block;
+            animation: spin-slow 3s linear infinite;
+        }
+
+        @keyframes spin-slow {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .doc-panel {
+                flex-direction: column;
+            }
+
+            .doc-sidebar {
+                width: 100%;
+            }
+
+            .timeline::before {
+                left: 1rem;
+            }
+
+            .timeline-item {
+                gap: 1rem;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- PCB Background -->
+    <div class="pcb-background">
+        <svg class="pcb-grid" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <pattern id="pcb" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
+                    <circle cx="50" cy="50" r="2" fill="#f0f0f0" />
+                    <path d="M 0 50 L 50 50 M 50 0 L 50 50" stroke="#f0f0f0" stroke-width="1" fill="none" />
+                </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#pcb)" />
+        </svg>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div>
+            <h1>Waffles <span class="gold">Firmware</span></h1>
+            <p>Ethical, transparent, consent-driven firmware for modern embedded systems</p>
+            <button class="btn-gold">
+                Explore Firmware
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+            </button>
+        </div>
+    </section>
+
+    <!-- Devices Section -->
+    <section class="devices">
+        <div class="container">
+            <h2 class="section-title"><span class="gold">Supported</span> Devices</h2>
+            <div class="device-grid">
+                <div class="device-card">
+                    <div class="device-icon">🔌</div>
+                    <h3>Arduino Uno</h3>
+                    <div class="device-specs">ATmega328P | 16MHz | 32KB Flash</div>
+                    <div class="device-price">Free</div>
+                </div>
+                <div class="device-card">
+                    <div class="device-icon">📡</div>
+                    <h3>ESP32</h3>
+                    <div class="device-specs">Dual-core | WiFi+BT | 4MB Flash</div>
+                    <div class="device-price">Free</div>
+                </div>
+                <div class="device-card">
+                    <div class="device-icon">🥧</div>
+                    <h3>Raspberry Pi Pico</h3>
+                    <div class="device-specs">RP2040 | Dual M0+ | 264KB RAM</div>
+                    <div class="device-price">Free</div>
+                </div>
+                <div class="device-card">
+                    <div class="device-icon">⚙️</div>
+                    <h3>STM32</h3>
+                    <div class="device-specs">ARM Cortex-M | 72MHz | 64KB RAM</div>
+                    <div class="device-price">Free</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Timeline -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">Core <span class="gold">Features</span></h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                        </svg>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>Consent-First Architecture</h3>
+                        <p>Every interaction requires explicit user approval</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                        </svg>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>Privacy by Design</h3>
+                        <p>Zero telemetry, zero tracking, zero data collection</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                            <circle cx="12" cy="12" r="3"></circle>
+                        </svg>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>Transparent Source</h3>
+                        <p>Fully auditable, open-source codebase</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect>
+                            <rect x="9" y="9" width="6" height="6"></rect>
+                            <line x1="9" y1="1" x2="9" y2="4"></line>
+                            <line x1="15" y1="1" x2="15" y2="4"></line>
+                            <line x1="9" y1="20" x2="9" y2="23"></line>
+                            <line x1="15" y1="20" x2="15" y2="23"></line>
+                            <line x1="20" y1="9" x2="23" y2="9"></line>
+                            <line x1="20" y1="14" x2="23" y2="14"></line>
+                            <line x1="1" y1="9" x2="4" y2="9"></line>
+                            <line x1="1" y1="14" x2="4" y2="14"></line>
+                        </svg>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>Optimized Performance</h3>
+                        <p>Minimal overhead, maximum efficiency</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Documentation Panel -->
+    <section class="documentation">
+        <div class="container">
+            <h2 class="section-title"><span class="gold">Documentation</span></h2>
+            <div class="doc-panel">
+                <div class="doc-sidebar">
+                    <div class="doc-sidebar-title">Contents</div>
+                    <div class="doc-nav">
+                        <div class="doc-nav-item">Quick Start</div>
+                        <div class="doc-nav-item">API Reference</div>
+                        <div class="doc-nav-item indent">Setup</div>
+                        <div class="doc-nav-item indent">Config</div>
+                        <div class="doc-nav-item indent">Build</div>
+                        <div class="doc-nav-item">Examples</div>
+                    </div>
+                </div>
+                <div class="doc-content">
+                    <h3>Quick Start</h3>
+                    <div class="code-block">
+                        <div>
+                            <span class="code-comment">// C Implementation</span>
+                            <pre>#include &lt;waffles.h&gt;
+
+void setup() {
+  waffles_init();
+  consent_request("data_access");
+}</pre>
+                        </div>
+                        <div class="code-divider">
+                            <span class="code-comment">// Assembly</span>
+                            <pre>MOV R0, #CONSENT_FLAG
+BL  request_consent
+CMP R0, #1</pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ethical Principles -->
+    <section class="principles">
+        <div class="container">
+            <h2 class="section-title"><span class="gold">Ethical</span> Principles</h2>
+            <div class="principles-grid">
+                <div class="principle-card">
+                    <div class="principle-number">1</div>
+                    <h3>Informed Consent</h3>
+                    <p>Users must understand and approve all firmware actions</p>
+                </div>
+                <div class="principle-card">
+                    <div class="principle-number">2</div>
+                    <h3>Data Minimization</h3>
+                    <p>Collect nothing, store nothing, transmit nothing</p>
+                </div>
+                <div class="principle-card">
+                    <div class="principle-number">3</div>
+                    <h3>Radical Transparency</h3>
+                    <p>Every line of code is open for inspection</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Section -->
+    <section class="download">
+        <div class="container">
+            <h2 class="section-title"><span class="gold">Download</span> Waffles</h2>
+            <div class="terminal">
+                <div class="terminal-line">
+                    <span class="terminal-prompt">$</span>
+                    <span>git clone https://github.com/waffles/firmware.git</span>
+                </div>
+                <div class="terminal-line">
+                    <span class="terminal-prompt">$</span>
+                    <span>cd firmware && make install</span>
+                </div>
+                <div class="terminal-line">
+                    <span class="terminal-prompt">$</span>
+                    <span class="cursor">_</span>
+                </div>
+            </div>
+            <button class="btn-gold">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="7 10 12 15 17 10"></polyline>
+                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+                Download Latest Release
+            </button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>© 2025 Waffles Firmware. All rights reserved.</div>
+                <div class="footer-links">
+                    <a href="#" class="footer-link">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                        </svg>
+                        GitHub
+                    </a>
+                    <a href="#" class="footer-link">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                            <line x1="16" y1="13" x2="8" y2="13"></line>
+                            <line x1="16" y1="17" x2="8" y2="17"></line>
+                            <polyline points="10 9 9 9 8 9"></polyline>
+                        </svg>
+                        Docs
+                    </a>
+                    <span class="waffle">🧇</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Intersection Observer for timeline animations
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.timeline-item').forEach(item => {
+            observer.observe(item);
+        });
+    </script>
+</body>
 </html>
